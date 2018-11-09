@@ -27,44 +27,55 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
  (function() {
    $(document).ready(function(){
      $('.reviews__slider').slick({
-       slidesToShow: 2,
+
        accessibility: false,
        autoplay: false,
        autoplaySpeed: 6000,
-       arrows: true,
        dots: true,
        infinite: true,
        prevArrow: '.reviews__toggler--prew',
-       nextArrow: '.reviews__toggler--next'
+       nextArrow: '.reviews__toggler--next',
+       mobileFirst: true,
+       responsive: [
+         {
+           breakpoint: 320,
+           settings: {
+             slidesToShow: 1,
+             arrows: false
+           }
+         },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 2,
+            arrows: true
+          }
+        }
+      ]
      });
 
      $('.cases-slider__wrapper').slick({
+       mobileFirst: true,
        slidesToShow: 1,
        accessibility: false,
        autoplay: false,
-       autoplaySpeed: 6000,
-       arrows: true,
-       dots: false,
        infinite: true,
-       prevArrow: '.cases-slider__toggler--prew',
-       nextArrow: '.cases-slider__toggler--next'
+       responsive: [
+         {
+           breakpoint: 320,
+           settings: {
+             arrows: false,
+             dots: true
+           }
+         },
+        {
+          breakpoint: 786,
+          settings: {
+            arrows: true,
+            dots: false
+          }
+        }
+      ]
      });
    });
  }())
-
-//
-//  $(document).ready(function(){
-//
-//    $(".reviews__slider").slick({
-//        autoplay: false,
-//        arrows: true,
-//        dots: true,
-//        touchMove : true,
-//        fade: true,
-//        speed: 500,
-//        cssEase: "linear",
-//        prevArrow: '<div class="arrow-cont left-arrow"><img class=" arrow" src="'+TEMPLATE_DIR+'/img/arrow_left.png"></div>',
-//        nextArrow: '<div class="arrow-cont right-arrow"><img class=" arrow" src="'+TEMPLATE_DIR+'/img/arrow_right.png"></div>'
-//    });
-//
-// });
