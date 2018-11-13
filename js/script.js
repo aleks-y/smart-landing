@@ -131,7 +131,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
          $('.hero__animation--' + (i + 1)).addClass('random--' + animationIndexes[i]);
        }
 
-     }, 5000);
+     }, 7000);
 
    });
  }());
