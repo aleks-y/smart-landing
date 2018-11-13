@@ -1,3 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-  <path d="M132.531,1455H139v71h-6.469v-71Zm-25.812,0h6.468v71h-6.468v-71Zm12.906,0h6.469v71h-6.469v-71Zm-25.812,0h6.469v71H93.813v-71ZM68,1455h6.469v71H68v-71Zm12.906,0h6.469v71H80.906v-71Z" transform="translate(-68 -1455)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="77" height="77" viewBox="0 0 77 77">
+  <rect width="7" height="77" x="0" y="0"/>
+  <rect width="7" height="77" x="14" y="0"/>
+  <rect width="7" height="77" x="28" y="0"/>
+  <rect width="7" height="77" x="42" y="0"/>
+  <rect width="7" height="77" x="56" y="0"/>
+  <rect width="7" height="77" x="70" y="0"/>
 </svg>
