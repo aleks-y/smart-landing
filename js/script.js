@@ -96,42 +96,162 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
        return Math.floor(Math.random() * (max + 1 - min)) + min;
      };
 
-     var initialAnimation = function () {
-       var animationIndexes = [];
-       var elementsCount = $('.hero__animation').length;
-
-       for (var i = 0; i < 12; i++) {
-         if ($('.hero__animation').has('random--' + (i + 1))) {
-           $('.hero__animation').removeClass('random--' + (i + 1));
-         }
-       }
-
-       for (var i = 0; i < elementsCount; i++) {
-         animationIndexes[i] = getRandomInt(1, 12);
-         $('.hero__animation--' + (i + 1)).addClass('random--' + animationIndexes[i]);
-       }
-     };
-
      animationSize();
-     initialAnimation();
-     window.addEventListener("resize", animationSize);
+     // var initialAnimation = function () {
+     //   var animationIndexes = [];
+     //   var elementsCount = $('.hero__animation').length;
+     //
+     //   for (var i = 0; i < 12; i++) {
+     //     if ($('.hero__animation').has('random--' + (i + 1))) {
+     //       $('.hero__animation').removeClass('random--' + (i + 1));
+     //     }
+     //   }
+     //
+     //   for (var i = 0; i < elementsCount; i++) {
+     //     animationIndexes[i] = getRandomInt(1, 12);
+     //     $('.hero__animation--' + (i + 1)).addClass('random--' + animationIndexes[i]);
+     //   }
+     // };
+     //
+     // initialAnimation();
+     // window.addEventListener("resize", animationSize);
+     //
+     // var infiniteAnimation = setInterval(function () {
+     //   var animationIndexes = [];
+     //   var elementsCount = $('.hero__animation').length;
+     //
+     //   for (var i = 0; i < 12; i++) {
+     //     if ($('.hero__animation').has('random--' + (i + 1))) {
+     //       $('.hero__animation').removeClass('random--' + (i + 1));
+     //     }
+     //   }
+     //
+     //   for (var i = 0; i < elementsCount; i++) {
+     //     animationIndexes[i] = getRandomInt(1, 12);
+     //     $('.hero__animation--' + (i + 1)).addClass('random--' + animationIndexes[i]);
+     //   }
+     //
+     // }, 7000);
 
-     var infiniteAnimation = setInterval(function () {
-       var animationIndexes = [];
-       var elementsCount = $('.hero__animation').length;
 
-       for (var i = 0; i < 12; i++) {
-         if ($('.hero__animation').has('random--' + (i + 1))) {
-           $('.hero__animation').removeClass('random--' + (i + 1));
-         }
-       }
 
-       for (var i = 0; i < elementsCount; i++) {
-         animationIndexes[i] = getRandomInt(1, 12);
-         $('.hero__animation--' + (i + 1)).addClass('random--' + animationIndexes[i]);
-       }
 
-     }, 7000);
+
+
+
+
+     // =======TEST=======
+     // var setPattern = function (element, patternIndex) {
+     //   element.classList.add('animation--pattern-' + patternIndex);
+     // }
+     //
+     // var removePattern = function (element, patternIndex) {
+     //   element.classList.remove('animation--pattern-' + patternIndex);
+     // }
+     //
+     // var setAnimationOut = function (element, animationIndex) {
+     //   element.classList.add('animation-out--random' + animationIndex);
+     // }
+     //
+     // var removeAnimationOut = function (element, animationIndex) {
+     //   element.classList.remove('animation-out--random' + animationIndex);
+     // }
+     //
+     // var setAnimationIn = function (element, animationIndex) {
+     //   element.classList.add('animation-in--random' + animationIndex);
+     // }
+     //
+     // var removeAnimationIn = function (element, animationIndex) {
+     //   element.classList.remove('animation-in--random' + animationIndex);
+     // }
+     //
+     // var elementStripes = document.querySelector('.main-case__stripes');
+     //
+     // var randomAnimate = function () {
+     //   var initialPatternIndex = getRandomInt(1, 4);
+     //   var initialAnimationIndex = getRandomInt(1, 2);
+     //   var randomStartDelay = getRandomInt(500, 1500);
+     //
+     //   setPattern(elementStripes, initialPatternIndex);
+     //
+     //   var initialState = setTimeout(function () {
+     //     setAnimationOut(elementStripes, initialAnimationIndex);
+     //     // debugger;
+     //
+     //     var animationIn = getRandomInt(1, 2);
+     //     var patternNew = getRandomInt(1, 4);
+     //
+     //     setPattern(elementStripes, patternNew);
+     //     setAnimationIn(elementStripes, animationIn);
+     //
+     //     var removeAnimationIn = setTimeout(function () {
+     //       removeAnimationIn(elementStripes, animationIn);
+     //     }, 700);
+     //
+     //     var addAnimationOut = setTimeout(finction () {
+     //       var animationOut = getRandomInt(1, 2);
+     //
+     //       setAnimationOut(elementStripes, animationOut);
+     //
+     //
+     //     }, 5000);
+     //
+     //
+     //
+     //   }, randomStartDelay)
+     // };
+     //
+     // randomAnimate();
+     //
+     // setPattern(1);
+     //
+     // var mainCaseAnimation = setTimeout(function () {
+     //
+     //
+     //   var animationOutInitial = getRandomInt(1, 2);
+     //   elementStripes.classList.add('animation-out--random' + animationOutInitial);
+     //
+     //   var removeInitial = setTimeout(function () {
+     //     elementStripes.classList.remove('animation-out--random' + animationOutInitial);
+     //
+     //     for (var i = 1; i < 4; i++) {
+     //       if (elementStripes.classList.contains('animation--pattern-' + i)) {
+     //         elementStripes.classList.remove('animation--pattern-' + i);
+     //       }
+     //     }
+     //   }, 700);
+     //
+     //   var infiniteAnim = setInterval(function () {
+     //
+     //
+     //     for (var i = 1; i <= 4; i++) {
+     //       if (elementStripes.classList.contains('animation--pattern-' + i)) {
+     //         elementStripes.classList.remove('animation--pattern-' + i);
+     //       }
+     //     }
+     //
+     //     setPattern(patternNew);
+     //     elementStripes.classList.add('animation-in--random' + animationIn);
+     //
+     //     var removeIn = setTimeout(function () {
+     //       elementStripes.classList.remove('animation-in--random' + animationIn);
+     //     }, 700);
+     //
+     //     var outAnimation = setTimeout(function () {
+     //       elementStripes.classList.add('animation-out--random' + animationOut);
+     //
+     //       var removeIn = setTimeout(function () {
+     //         elementStripes.classList.remove('animation-in--random' + animationIn);
+     //       }, 700);
+     //
+     //     }, 5000);
+     //
+     //   //
+     //   //
+     //   }, 7000);
+     //
+     //
+     // }, getRandomInt(500, 2000));
 
    });
  }());
