@@ -49,7 +49,44 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
 
  (function () {
 
+   document.addEventListener('DOMContentLoaded', function () {
+     var loader = setTimeout(function () {
+       document.querySelector('.loader').style.opacity = '0';
+       var waitLoaderHide = setTimeout(function () {
+         document.querySelector('.loader').remove();
+         document.querySelector('html').classList.remove('show-loader');
+       }, 300);
+     }, 2000);
+   });
+
    $(document).ready(function(){
+
+     const casesSliderOptions = {
+       mobileFirst: true,
+       slidesToShow: 1,
+       accessibility: false,
+       autoplay: false,
+       infinite: true,
+       responsive: [
+         {
+           breakpoint: 320,
+           settings: {
+             arrows: false,
+             dots: true
+           }
+         },
+         {
+           breakpoint: 786,
+           settings: {
+             arrows: true,
+             dots: false
+           }
+         }
+       ]
+     };
+
+     $('.cases-slider').slick(casesSliderOptions);
+
      var reviews = [];
 
      $('.reviews__slider').on('init', function (event, slick) {
@@ -60,13 +97,10 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
              typeSpeed: 0,
              backSpeed: 0,
              backDelay: 500,
-             startDelay: 500,
+             startDelay: 1000,
              loop: false,
              smartBackspace: false,
              showCursor: false,
-             // onComplete: (self) => {
-             //   reviewItem1.stop();
-             // }
           });
 
          var reviewItem2 = new Typed('[data-slick-index="1"] .typed', {
@@ -74,14 +108,10 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
              typeSpeed: 0,
              backSpeed: 0,
              backDelay: 500,
-             startDelay: 500,
+             startDelay: 1000,
              loop: false,
              smartBackspace: false,
              showCursor: false,
-             // onComplete: (self) => {
-             //   reviewItem2.stop();
-             // }
-
           });
 
          var reviewItem3 = new Typed('[data-slick-index="2"] .typed', {
@@ -89,13 +119,10 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
              typeSpeed: 0,
              backSpeed: 0,
              backDelay: 500,
-             startDelay: 500,
+             startDelay: 1000,
              loop: false,
              smartBackspace: false,
              showCursor: false,
-             // onComplete: (self) => {
-             //   reviewItem3.stop();
-             // }
           });
 
          var reviewItem4 = new Typed('[data-slick-index="3"] .typed', {
@@ -103,18 +130,14 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
              typeSpeed: 0,
              backSpeed: 0,
              backDelay: 500,
-             startDelay: 500,
+             startDelay: 1000,
              loop: false,
              smartBackspace: false,
              showCursor: false,
-             // onComplete: (self) => {
-             //   reviewItem4.stop();
-             // }
           });
 
           return reviews = [reviewItem1, reviewItem2, reviewItem3, reviewItem4];
      });
-
 
      $('.reviews__slider').slick({
        accessibility: false,
@@ -142,37 +165,25 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
        ]
      });
 
-       $('.reviews__slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-         // console.log(reviews);
+     ScrollReveal({
+       delay: 300,
+       duration: 600,
+       reset: true
+     });
 
+
+       $('.reviews__slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
 
          if (slick.options.slidesToShow === 1) {
-           // $('[data-slick-index="' + (currentSlide) + '"]').css({color: ''});
            reviews[currentSlide].stop();
-
-
-           // $('[data-slick-index="' + (nextSlide) + '"]').css({color: 'blue'});
            reviews[nextSlide].reset();
          }
 
          if (slick.options.slidesToShow === 2) {
            if (currentSlide > nextSlide) {
-             // console.log('<---Влево');
-             // $('[data-slick-index="' + (currentSlide + 1) + '"]').css({color: ''});
-             // $('[data-slick-index="' + (currentSlide) + '"]').css({color: 'blue'});
-             // $('[data-slick-index="' + (nextSlide) + '"]').css({color: 'blue'});
-             // reviews[currentSlide + 1].stop();
-             // reviews[currentSlide].start();
              reviews[nextSlide].reset();
-
-
            } else {
-             // console.log('Вправо--->');
-             // $('[data-slick-index="' + (currentSlide) + '"]').css({color: ''});
-             // $('[data-slick-index="' + (nextSlide + 1) + '"]').css({color: 'blue'});
-             // reviews[currentSlide].stop();
              reviews[nextSlide + 1].reset();
-
            }
          }
 
@@ -196,30 +207,83 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
 
        });
 
+   $('.cases-slider-big').on('init', function (event, slick) {
+     if (document.documentElement.clientWidth <= 1280) {
+       for (var i = 0; i < $('.cases').length; i++) {
+         $('.cases-slider-big [data-slick-index="' + i + '"] .cases-slider').slick('slickAdd', $('.cases-slider-big [data-slick-index="' + i + '"] .cases__content'), 0, true);
+       }
+     } else {
+       return;
+     }
+   });
 
-     $('.cases-slider__wrapper').slick({
-       mobileFirst: true,
-       slidesToShow: 1,
-       accessibility: false,
-       autoplay: false,
-       infinite: true,
-       responsive: [
-         {
-           breakpoint: 320,
-           settings: {
-             arrows: false,
-             dots: true
-           }
-         },
-         {
-           breakpoint: 786,
-           settings: {
-             arrows: true,
-             dots: false
-           }
-         }
-       ]
-     });
+    $('.cases-slider-big').slick({
+      mobileFirst: true,
+      slidesToShow: 1,
+      accessibility: false,
+      autoplay: false,
+      infinite: false,
+      dots: false,
+      arrows: false,
+      draggable: false,
+      swipe: false,
+      edgeFriction: 0
+    });
+
+    window.addEventListener("resize", resizeThrottler, false);
+
+    var resizeTimeout;
+    function resizeThrottler() {
+      // ignore resize events as long as an actualResizeHandler execution is in the queue
+      if ( !resizeTimeout ) {
+        resizeTimeout = setTimeout(function resizeViewport() {
+          resizeTimeout = null;
+          actualResizeHandler();
+          animationSize();
+
+         // The actualResizeHandler will execute at a rate of 15fps
+       }, 66);
+      }
+    }
+
+    function actualResizeHandler() {
+      var viewportWidth = document.documentElement.clientWidth;
+
+      if (viewportWidth > 1280 && $('.cases-slider .cases__content').length > 0) {
+        for (var i = 0; i < $('.cases').length; i++) {
+          $('.cases-slider-big [data-slick-index="' + i + '"] .cases-slider .cases__content[data-slick-index="0"]').clone().prependTo($('.cases-slider-big [data-slick-index="' + i + '"] .cases__container'));
+          $('.cases-slider-big [data-slick-index="' + i + '"] .cases-slider').slick('slickRemove', 0);
+          $('.cases-slider-big [data-slick-index="' + i + '"] .cases__content')[0].classList.remove(['slick-slide', 'slick-current', 'slick-active']);
+          $('.cases-slider-big [data-slick-index="' + i + '"] .cases__content')[0].removeAttribute('style');
+          $('.cases-slider-big [data-slick-index="' + i + '"] .cases__content')[0].removeAttribute('data-slick-index');
+          $('.cases-slider-big [data-slick-index="' + i + '"] .cases__content')[0].removeAttribute('aria-hidden');
+        }
+      }
+
+      if (viewportWidth < 1280 && $('.cases__container > .cases__content').length > 0) {
+        for (var i = 0; i < $('.cases').length; i++) {
+          $('.cases-slider-big [data-slick-index="' + i + '"] .cases-slider').slick('slickAdd', $('.cases-slider-big [data-slick-index="' + i + '"] .cases__content'), 0, true);
+        }
+      }
+    };
+
+    $('.cases-toggler__button-list').on('click', function (event) {
+      var target = event.target;
+
+      while (target != this) {
+        if (target.classList.contains('cases-toggler__button')) {
+          var caseIndex = target.dataset.case;
+          $('.cases-slider-big').slick('slickGoTo', caseIndex, true);
+
+          $('.cases-toggler__button--active').removeClass('cases-toggler__button--active');
+          target.classList.add('cases-toggler__button--active');
+
+          return;
+        }
+
+        target = target.parentNode;
+      }
+    });
 
      var animationSize = function () {
        var heroHeight = $('.hero')[0].offsetHeight / 2;
@@ -230,34 +294,23 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
 
        $('.hero__animation--1').css({left: heroWidth / 2 - 2 * heroHeight});
        $('.hero__animation--2').css({left: heroWidth / 2 - heroHeight});
+       $('.hero__animation--3').css({left: heroWidth / 2});
        $('.hero__animation--4').css({left: heroWidth / 2 + heroHeight});
        $('.hero__animation--5').css({left: heroWidth / 2 - 2 * heroHeight});
        $('.hero__animation--6').css({left: heroWidth / 2 - heroHeight});
+       $('.hero__animation--7').css({left: heroWidth / 2});
        $('.hero__animation--8').css({left: heroWidth / 2 + heroHeight});
-     };
-
-     var getRandomInt = function (min, max) {
-       return Math.floor(Math.random() * (max + 1 - min)) + min;
      };
 
      animationSize();
 
-     ScrollReveal({
-
-       delay: 300,
-       duration: 600,
-       reset: true
-     });
      ScrollReveal().reveal('.section-title__stripes--left', { origin: 'left', distance: '500px' });
      ScrollReveal().reveal('.section-title__stripes--right', { origin: 'right', distance: '500px' });
-     ScrollReveal().reveal('.reviews__container',  { distance: '0px', delay: 100, duration: 100, afterReveal: function () {
+     ScrollReveal().reveal('.reviews__container',  { distance: '0px', delay: 0, duration: 0, afterReveal: function () {
        for (var i = 0; i < reviews.length; i++) {
-         reviews[i].reset();
+         reviews[0].reset();
+         reviews[1].reset();
        }
      } });
-
-
-
-
    });
  }());
