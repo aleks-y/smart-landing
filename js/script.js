@@ -208,7 +208,8 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
        });
 
    $('.cases-slider-big').on('init', function (event, slick) {
-     if (document.documentElement.clientWidth <= 1280) {
+     // if (document.querySelector('.cases-slider-big').clientWidth < 1280) {
+     if (window.innerWidth < 1240) {
        for (var i = 0; i < $('.cases').length; i++) {
          $('.cases-slider-big [data-slick-index="' + i + '"] .cases-slider').slick('slickAdd', $('.cases-slider-big [data-slick-index="' + i + '"] .cases__content'), 0, true);
        }
@@ -240,16 +241,22 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
           resizeTimeout = null;
           actualResizeHandler();
           animationSize();
+          console.log(document.documentElement.clientWidth);
+          console.log(document.documentElement.scrollWidth);
+          console.log(document.documentElement.offsetWidth);
+          console.log(window.innerWidth);
+
 
          // The actualResizeHandler will execute at a rate of 15fps
-       }, 66);
+       }, 10);
       }
     }
 
     function actualResizeHandler() {
-      var viewportWidth = document.documentElement.clientWidth;
+      var viewportWidth = window.innerWidth;
+      // var viewportWidth = document.querySelector('.cases-slider-big').clientWidth;
 
-      if (viewportWidth > 1280 && $('.cases-slider .cases__content').length > 0) {
+      if (viewportWidth > 1240 && $('.cases-slider .cases__content').length > 0) {
         for (var i = 0; i < $('.cases').length; i++) {
           $('.cases-slider-big [data-slick-index="' + i + '"] .cases-slider .cases__content[data-slick-index="0"]').clone().prependTo($('.cases-slider-big [data-slick-index="' + i + '"] .cases__container'));
           $('.cases-slider-big [data-slick-index="' + i + '"] .cases-slider').slick('slickRemove', 0);
@@ -260,7 +267,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
         }
       }
 
-      if (viewportWidth < 1280 && $('.cases__container > .cases__content').length > 0) {
+      if (viewportWidth < 1240 && $('.cases__container > .cases__content').length > 0) {
         for (var i = 0; i < $('.cases').length; i++) {
           $('.cases-slider-big [data-slick-index="' + i + '"] .cases-slider').slick('slickAdd', $('.cases-slider-big [data-slick-index="' + i + '"] .cases__content'), 0, true);
         }
