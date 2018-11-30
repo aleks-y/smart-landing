@@ -97,7 +97,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
              typeSpeed: 0,
              backSpeed: 0,
              backDelay: 500,
-             startDelay: 1000,
+             startDelay: 100,
              loop: false,
              smartBackspace: false,
              showCursor: false,
@@ -108,7 +108,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
              typeSpeed: 0,
              backSpeed: 0,
              backDelay: 500,
-             startDelay: 1000,
+             startDelay: 100,
              loop: false,
              smartBackspace: false,
              showCursor: false,
@@ -119,7 +119,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
              typeSpeed: 0,
              backSpeed: 0,
              backDelay: 500,
-             startDelay: 1000,
+             startDelay: 100,
              loop: false,
              smartBackspace: false,
              showCursor: false,
@@ -130,7 +130,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
              typeSpeed: 0,
              backSpeed: 0,
              backDelay: 500,
-             startDelay: 1000,
+             startDelay: 100,
              loop: false,
              smartBackspace: false,
              showCursor: false,
@@ -208,7 +208,6 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
        });
 
    $('.cases-slider-big').on('init', function (event, slick) {
-     // if (document.querySelector('.cases-slider-big').clientWidth < 1280) {
      if (window.innerWidth < 1240) {
        for (var i = 0; i < $('.cases').length; i++) {
          $('.cases-slider-big [data-slick-index="' + i + '"] .cases-slider').slick('slickAdd', $('.cases-slider-big [data-slick-index="' + i + '"] .cases__content'), 0, true);
@@ -241,11 +240,6 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
           resizeTimeout = null;
           actualResizeHandler();
           animationSize();
-          console.log(document.documentElement.clientWidth);
-          console.log(document.documentElement.scrollWidth);
-          console.log(document.documentElement.offsetWidth);
-          console.log(window.innerWidth);
-
 
          // The actualResizeHandler will execute at a rate of 15fps
        }, 10);
@@ -254,7 +248,6 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
 
     function actualResizeHandler() {
       var viewportWidth = window.innerWidth;
-      // var viewportWidth = document.querySelector('.cases-slider-big').clientWidth;
 
       if (viewportWidth > 1240 && $('.cases-slider .cases__content').length > 0) {
         for (var i = 0; i < $('.cases').length; i++) {
