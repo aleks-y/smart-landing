@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" class="show-loader">
+<html lang="ru">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,37 +16,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="#ff2600">
   </head>
   <body>
-    <div class="loader" class="">
-      <style>
-        .show-loader {
-          overflow: hidden;
-        }
-
-        .loader {
-          position: absolute;
-          top: 0;
-          right: 0;
-          left: 0;
-          bottom: 0;
-          z-index: 200;
-          background-color: #ff2600;
-          will-change: opacity;
-
-          transition: 0.3s opacity ease-out;
-        }
-
-        .loader svg {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-
-          width: 150px;
-          height: auto;
-
-          transform: translate(-50%, -50%);
-        }
-      </style>
-      <svg version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+    <div class="loader" style="position: fixed; top: 0; right: 0; left: 0; bottom: 0; z-index: 200; background-color: #ff2600; will-change: opacity; transition: 0.3s opacity ease-out;">
+      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" style="position: absolute; top: 50%; left: 50%; width: 150px; height: auto; transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%);">
        <path fill="#fff" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
         c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
             <animateTransform
@@ -96,6 +67,7 @@
             <li>инженерные сети и коммуникации</li>
             <li>IT инфраструктура</li>
             <li>промышленная безопасность</li>
+            <li>разработка программного обеспечения</li>
           </ul>
         </div>
         <div class="hero__info">
@@ -109,7 +81,6 @@
             <li><a href="#" class="nav-main__link">Контакты</a></li>
           </ul>
         </nav>
-        <!-- <a href="#" class="btn btn--white hero__callback">Обратный звонок</a> -->
       </div>
       <span class="hero__animation hero__animation--1"></span>
       <span class="hero__animation hero__animation--2"></span>

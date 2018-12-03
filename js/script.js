@@ -54,7 +54,6 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
        document.querySelector('.loader').style.opacity = '0';
        var waitLoaderHide = setTimeout(function () {
          document.querySelector('.loader').remove();
-         document.querySelector('html').classList.remove('show-loader');
        }, 300);
      }, 2000);
    });
